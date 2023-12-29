@@ -7,6 +7,7 @@ export default function Todo () {
 
   const handleCheckboxClick = () => setCompleted(!completed)
   const handleEditClick = () => setEditing(!editing)
+  const handleUpdateLabel = (e) => setLabel(e.target.value)
 
   return (
     <div>
@@ -20,7 +21,15 @@ export default function Todo () {
         />
         <span />
       </div>
-      <span>{label}</span>
+      {editing === true ? (
+          <input
+            type="text"
+            value={label}
+            onChange={handleUpdateLabel}
+          />
+        ) : (
+          <span>{label}</span>
+        )}
     </label>
     <button onClick={handleEditClick}>
       {editing ? "Save" : "Edit"}
