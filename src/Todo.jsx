@@ -6,8 +6,10 @@ export default function Todo () {
   const [editing, setEditing] = React.useState(false)
 
   const handleCheckboxClick = () => setCompleted(!completed)
+  const handleEditClick = () => setEditing(!editing)
 
   return (
+    <div>
     <label htmlFor="checkbox">
       <div>
         <input
@@ -20,4 +22,9 @@ export default function Todo () {
       </div>
       <span>{label}</span>
     </label>
-  )
+    <button onClick={handleEditClick}>
+      {editing ? "Save" : "Edit"}
+    </button>
+  </div>
+)
+}
