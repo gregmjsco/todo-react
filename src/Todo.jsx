@@ -1,7 +1,9 @@
 import * as React from "react"
 
 export default function Todo () {
+  const [label, setLabel] = React.useState("Learn React")
   const [completed, setCompleted] = React.useState(false)
+  const [editing, setEditing] = React.useState(false)
 
   const handleCheckboxClick = () => setCompleted(!completed)
 
@@ -16,7 +18,6 @@ export default function Todo () {
         />
         <span />
       </div>
-      <span>Learn React</span>
+      <span>{label}</span>
     </label>
   )
-}
