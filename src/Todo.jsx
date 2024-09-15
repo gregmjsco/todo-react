@@ -1,8 +1,6 @@
 import * as React from "react"
 
-
-export default function Todo ({todo, handleUpdateTodo}) {
-    
+export default function Todo ({ todo, handleUpdateTodo }) {
   const [completed, setCompleted] = React.useState(false)
   const [editing, setEditing] = React.useState(false)
 
@@ -20,17 +18,17 @@ export default function Todo ({todo, handleUpdateTodo}) {
 
   return (
     <li>
-    <label htmlFor={todo.id}>
-      <div>
-        <input
-          type="checkbox"
-          id={todo.id}
-          checked={todo.completed}
-          onChange={handleCheckboxClick}
-        />
-        <span />
-      </div>
-      {editing === true ? (
+      <label htmlFor={todo.id}>
+        <div>
+          <input
+            type="checkbox"
+            id={todo.id}
+            checked={todo.completed}
+            onChange={handleCheckboxClick}
+          />
+          <span />
+        </div>
+        {editing === true ? (
           <input
             type="text"
             value={todo.label}
@@ -39,10 +37,10 @@ export default function Todo ({todo, handleUpdateTodo}) {
         ) : (
           <span>{todo.label}</span>
         )}
-    </label>
-    <button onClick={handleEditClick}>
-      {editing ? "Save" : "Edit"}
-    </button>
-  </li>
-)
+      </label>
+      <button onClick={handleEditClick}>
+        {editing ? "Save" : "Edit"}
+      </button>
+    </li>
+  )
 }

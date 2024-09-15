@@ -2,22 +2,27 @@ import * as React from "react"
 import Todo from "./Todo"
 
 export default function TodoList() {
-  const [todo, setTodo] = React.useState({
-    id: 1,
-    label: "Learn React",
-    completed: false,
-  })
+  const [todos, setTodos] = React.useState([
+    {id: 1, label: "Learn React", completed: false},
+    {id: 2, label: "Learn Next.js", completed: false},
+    {id: 3, label: "Learn React Query", completed: false}
+  ])
 
   const handleUpdateTodo = (updatedTodo) => {
-    setTodo(updatedTodo)
+    const newTodos = todos.map((todo) => 
+      todo.id === updatedTodo.id ? updatedTodo : Todo)
+    setTodos(newTodos)
   }
 
   return (
     <ul>
-      <Todo
-        todo={todo}
-        handleUpdateTodo={handleUpdateTodo}
-      />
+      {todos.map((todo) => (
+        <Todo
+          key={todo.id}
+          todo={todo}
+          handleUpdateTodo={handleUpdateTodo}
+          />
+      ))}
     </ul>
   )
 }
