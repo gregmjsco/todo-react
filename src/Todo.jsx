@@ -1,6 +1,6 @@
 import * as React from "react"
 
-export default function Todo ({ todo, handleUpdateTodo }) {
+export default function Todo ({ todo, handleUpdateTodo, handleDeleteTodo }) {
   const [completed, setCompleted] = React.useState(false)
   const [editing, setEditing] = React.useState(false)
 
