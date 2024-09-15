@@ -18,6 +18,7 @@ export default function TodoComposer( {handleAddTodo}) {
         handleAddTodo(todo)
         setLabel("")
     }
+    
   return (
     <li>
         <input 

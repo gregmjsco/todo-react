@@ -11,12 +11,12 @@ export default function TodoList() {
 
   const handleUpdateTodo = (updatedTodo) => {
     const newTodos = todos.map((todo) => 
-      todo.id === updatedTodo.id ? updatedTodo : Todo)
+      todo.id === updatedTodo.id ? updatedTodo : todo)
     setTodos(newTodos)
   }
 
   const handleDeleteTodo = (id) => {
-    const newTodos = todos.filter((todo) => todo.id != id)
+    const newTodos = todos.filter((todo) => todo.id !== id)
     setTodos(newTodos)
   }
 
@@ -34,7 +34,6 @@ export default function TodoList() {
           todo={todo}
           handleUpdateTodo={handleUpdateTodo}
           handleDeleteTodo={handleDeleteTodo}
-          handleAddTodo={handleAddTodo}
           />
       ))}
     </ul>

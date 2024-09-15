@@ -4,6 +4,10 @@ export default function Todo ({ todo, handleUpdateTodo, handleDeleteTodo }) {
   const [completed, setCompleted] = React.useState(false)
   const [editing, setEditing] = React.useState(false)
 
+  if (!todo) {
+    return null; // Or return some fallback UI if needed
+  }
+
   const handleCheckboxClick = () => handleUpdateTodo({
     ...todo,
     completed: !todo.completed
@@ -15,6 +19,8 @@ export default function Todo ({ todo, handleUpdateTodo, handleDeleteTodo }) {
     ...todo,
     label: e.target.value
   })
+
+  const handleDeleteClick = () => handleDeleteTodo(todo.id)
 
   return (
     <li>
@@ -41,6 +47,11 @@ export default function Todo ({ todo, handleUpdateTodo, handleDeleteTodo }) {
       <button onClick={handleEditClick}>
         {editing ? "Save" : "Edit"}
       </button>
+      {!editing && (
+          <button onClick={handleDeleteClick}>
+            Delete
+          </button>
+        )}
     </li>
   )
 }
